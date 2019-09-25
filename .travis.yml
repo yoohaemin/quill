@@ -15,7 +15,6 @@ branches:
     - website
 cache:
   directories:
-    - $HOME/.ivy2/cache
     - $HOME/.m2
     - $HOME/.sbt
 env:
