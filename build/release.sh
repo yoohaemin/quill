@@ -39,8 +39,14 @@ then
     # See https://github.com/sbt/sbt-pgp/pull/162 for more details
     cat local.credentials.sbt.temp | sed 's/import com.typesafe.sbt.SbtPgp/import com.jsuereth.sbtpgp.SbtPgp/' > local.credentials.sbt
 
-    ls -ltr
     sleep 3 # Need to wait until credential files fully written or build fails sometimes
+    ls -ltr
+
+    # Add keys
+    gpg --import local.secring.gpg
+    gpg --import local.pubring.gpg
+
+
     project_version="$(sbt 'show version' | tail -1 | cut -f 2)"
     echo "Detected Project Version $project_version from SBT Files"
 
