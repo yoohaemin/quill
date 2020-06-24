@@ -43,7 +43,7 @@ lazy val bigdataModules = Seq[sbt.ClasspathDep[sbt.ProjectReference]](
 lazy val allModules =
   baseModules ++ dbModules ++ asyncModules ++ codegenModules ++ bigdataModules
 
-lazy val scala213Modules = baseModules ++ dbModules ++ Seq[sbt.ClasspathDep[sbt.ProjectReference]](
+lazy val scala213Modules = baseModules ++ dbModules ++ codegenModules ++ Seq[sbt.ClasspathDep[sbt.ProjectReference]](
   `quill-async`,
   `quill-async-mysql`,
   `quill-async-postgres`,
